@@ -7,6 +7,18 @@ data:
     - icon: ':heavy_check_mark:'
       path: Data Structures/associative_array.test.cpp
       title: Data Structures/associative_array.test.cpp
+    - icon: ':x:'
+      path: Data Structures/predecessor_problem.test.cpp
+      title: Data Structures/predecessor_problem.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: Data Structures/static_range_sum.test.cpp
+      title: Data Structures/static_range_sum.test.cpp
+    - icon: ':x:'
+      path: Data Structures/staticrmq.test.cpp
+      title: Data Structures/staticrmq.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: Data Structures/unionfind.test.cpp
+      title: Data Structures/unionfind.test.cpp
   - name: Sample
     pages:
     - icon: ':heavy_check_mark:'
