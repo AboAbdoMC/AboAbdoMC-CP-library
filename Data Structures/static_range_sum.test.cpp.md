@@ -11,16 +11,7 @@ data:
     PROBLEM: https://judge.yosupo.jp/problem/static_range_sum
     links:
     - https://judge.yosupo.jp/problem/static_range_sum
-  bundledCode: "#line 1 \"Data Structures/static_range_sum.test.cpp\"\n/*\n  _____\
-    \ _        _   _      _____                         _____                 \n /\
-    \ ____| |      | | (_)    |  __ \\                       / ____|             \
-    \   \n| (___ | |_ __ _| |_ _  ___| |__) |__ _ _ __   __ _  ___| (___  _   _ _\
-    \ __ ___  \n \\___ \\| __/ _` | __| |/ __|  _  // _` | '_ \\ / _` |/ _ \\\\___\
-    \ \\| | | | '_ ` _ \\ \n ____) | || (_| | |_| | (__| | \\ \\ (_| | | | | (_| |\
-    \  __/____) | |_| | | | | | |\n|_____/ \\__\\__,_|\\__|_|\\___|_|  \\_\\__,_|_|\
-    \ |_|\\__, |\\___|_____/ \\__,_|_| |_| |_|\n                                 \
-    \              __/ |                            \n                           \
-    \                   |___/                             \n*/\n\n#define PROBLEM\
+  bundledCode: "#line 1 \"Data Structures/static_range_sum.test.cpp\"\n#define PROBLEM\
     \ \"https://judge.yosupo.jp/problem/static_range_sum\"\n\n#include <bits/stdc++.h>\n\
     using namespace std;\n\n#define F first\n#define S second\n#define pb push_back\n\
     #define all(x) (x).begin(), (x).end()\n#define sz(x) ((int)(x).size())\n\ntypedef\
@@ -37,20 +28,11 @@ data:
     // freopen(\"in\",\"r\",stdin);\n\t// freopen(\"out\",\"w\",stdout);\n\tint T\
     \ = 1;\n\t//scanf(\"%d\",&T);\n\tfor(int i = 0 ; i < T ; i++) solve(i+1);\n\t\
     return 0;\n}\n"
-  code: "/*\n  _____ _        _   _      _____                         _____     \
-    \            \n / ____| |      | | (_)    |  __ \\                       / ____|\
-    \                \n| (___ | |_ __ _| |_ _  ___| |__) |__ _ _ __   __ _  ___| (___\
-    \  _   _ _ __ ___  \n \\___ \\| __/ _` | __| |/ __|  _  // _` | '_ \\ / _` |/\
-    \ _ \\\\___ \\| | | | '_ ` _ \\ \n ____) | || (_| | |_| | (__| | \\ \\ (_| | |\
-    \ | | (_| |  __/____) | |_| | | | | | |\n|_____/ \\__\\__,_|\\__|_|\\___|_|  \\\
-    _\\__,_|_| |_|\\__, |\\___|_____/ \\__,_|_| |_| |_|\n                        \
-    \                       __/ |                            \n                  \
-    \                            |___/                             \n*/\n\n#define\
-    \ PROBLEM \"https://judge.yosupo.jp/problem/static_range_sum\"\n\n#include <bits/stdc++.h>\n\
-    using namespace std;\n\n#define F first\n#define S second\n#define pb push_back\n\
-    #define all(x) (x).begin(), (x).end()\n#define sz(x) ((int)(x).size())\n\ntypedef\
-    \ long long ll;\ntypedef long double ld;\ntypedef pair<int,int> pii;\ntypedef\
-    \ pair<ll,ll> pll;\n\n// RANDOM NUMBER GENERATOR\nmt19937 RNG(chrono::steady_clock::now().time_since_epoch().count());\
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/static_range_sum\"\n\n\
+    #include <bits/stdc++.h>\nusing namespace std;\n\n#define F first\n#define S second\n\
+    #define pb push_back\n#define all(x) (x).begin(), (x).end()\n#define sz(x) ((int)(x).size())\n\
+    \ntypedef long long ll;\ntypedef long double ld;\ntypedef pair<int,int> pii;\n\
+    typedef pair<ll,ll> pll;\n\n// RANDOM NUMBER GENERATOR\nmt19937 RNG(chrono::steady_clock::now().time_since_epoch().count());\
     \  \n#define SHUF(v) shuffle(all(v), RNG); \n// Use mt19937_64 for 64 bit random\
     \ numbers.\n\nint getrand(int l,int r) {\n\treturn uniform_int_distribution<int>(l,\
     \ r)(RNG);\n}\n\nconst ld eps = 1e-9;\nconst int mod = 1e9 + 7;\nconst int oo\
@@ -66,7 +48,7 @@ data:
   isVerificationFile: true
   path: Data Structures/static_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2023-01-11 21:04:56+03:00'
+  timestamp: '2023-01-11 21:20:22+03:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Data Structures/static_range_sum.test.cpp

@@ -7,13 +7,16 @@ data:
     - icon: ':heavy_check_mark:'
       path: Data Structures/associative_array.test.cpp
       title: Data Structures/associative_array.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
+      path: Data Structures/point_add_range_sum.test.cpp
+      title: Data Structures/point_add_range_sum.test.cpp
+    - icon: ':heavy_check_mark:'
       path: Data Structures/predecessor_problem.test.cpp
       title: Data Structures/predecessor_problem.test.cpp
     - icon: ':heavy_check_mark:'
       path: Data Structures/static_range_sum.test.cpp
       title: Data Structures/static_range_sum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Data Structures/staticrmq.test.cpp
       title: Data Structures/staticrmq.test.cpp
     - icon: ':heavy_check_mark:'
