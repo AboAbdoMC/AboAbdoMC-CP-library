@@ -1,61 +1,18 @@
 /*
-           _                   _         _       __  __  _____ 
-     /\   | |            /\   | |       | |     |  \/  |/ ____|
-    /  \  | |__   ___   /  \  | |__   __| | ___ | \  / | |     
-   / /\ \ | '_ \ / _ \ / /\ \ | '_ \ / _` |/ _ \| |\/| | |     
-  / ____ \| |_) | (_) / ____ \| |_) | (_| | (_) | |  | | |____ 
- /_/    \_\_.__/ \___/_/    \_\_.__/ \__,_|\___/|_|  |_|\_____|
+              ____  
+    /\    _  |  _ \ 
+   /  \ _| |_| |_) |
+  / /\ \_   _|  _ < 
+ / ____ \|_| | |_) |
+/_/    \_\   |____/ 
+                    
+                    
 */
-
-// build command:
-// g++ -std=gnu++17 -O3 -DDEBUG -g -fsanitize=signed-integer-overflow -fsanitize=bounds-strict -fsanitize=address -fsanitize=integer-divide-by-zero -fsanitize=float-divide-by-zero -fsanitize=pointer-overflow -fsanitize=shift-exponent -fsplit-stack -Wshadow -Wall -fconcepts -Wno-unused-result
-
-// REMEMBER:
-// BS, Offline, Persistent SegTree, SQRT, Treap, MaxFlow, FFT, Matrices
 
 #define PROBLEM "https://judge.yosupo.jp/problem/aplusb"
 
 #include <bits/stdc++.h>
 using namespace std;
-
-#pragma GCC optimize("O3,unroll-loops")
-#pragma GCC target("avx2,bmi,bmi2,lzcnt,popcnt")
-
-// DEBUG STUFF
-#define coutc "\033[48;5;196m\033[38;5;15m"
-#define endc "\033[0m"
-#define len(x) ((int)(x).size())
-#ifdef DEBUG
-string to_string(char c) { return string({c}); }
-
-template<class... Ts>
-ostream& operator<<(ostream& o, tuple<Ts...> t) {
-  string s = "(";
-  apply([&](auto&&... r) {
-    ((s += to_string(r) + ", "), ...); }, t);
-  return o << s.substr(0, len(s) - 2) + ")";
-}
-
-ostream& operator<<(ostream &o, pair<auto, auto> p) {
-  return o << "(" << p.fi << ", " << p.se << ")";
-}
-
-template<class C, class T = typename C::value_type,
-typename std::enable_if<!std::is_same<C, std::string>
-::value>::type* = nullptr>
-ostream& operator<<(ostream &o, C c) {
-  for (auto e : c) o << setw(7) << right << e;
-  return o << endc << endl << coutc;
-}
-
-void debug(const auto &e, const auto &... r) {
-  cerr << coutc << e;
-  ((cerr << " " << r), ..., (cerr << endc << endl));
-}
-#else
-#define debug(...)
-#endif
-
 
 #define F first
 #define S second
