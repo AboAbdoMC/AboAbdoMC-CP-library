@@ -1,14 +1,3 @@
-/*
- _____              _                                   _____           _     _                
-|  __ \            | |                                 |  __ \         | |   | |               
-| |__) | __ ___  __| | ___  ___ ___  ___ ___  ___  _ __| |__) | __ ___ | |__ | | ___ _ __ ___  
-|  ___/ '__/ _ \/ _` |/ _ \/ __/ _ \/ __/ __|/ _ \| '__|  ___/ '__/ _ \| '_ \| |/ _ \ '_ ` _ \ 
-| |   | | |  __/ (_| |  __/ (_|  __/\__ \__ \ (_) | |  | |   | | | (_) | |_) | |  __/ | | | | |
-|_|   |_|  \___|\__,_|\___|\___\___||___/___/\___/|_|  |_|   |_|  \___/|_.__/|_|\___|_| |_| |_|
-                                                                                               
-                                                                                               
-*/
-
 #define PROBLEM "https://judge.yosupo.jp/problem/predecessor_problem"
 
 #include <bits/stdc++.h>
@@ -38,7 +27,7 @@ const ld eps = 1e-9;
 const int mod = 1e9 + 7;
 const int oo = 1e9 + 7;
 const ll lloo = 1e18 + 7;
-const int N = 1e6 + 7;
+const int N = 1e7 + 7;
 
 char buff[N];
 
@@ -49,7 +38,7 @@ void solve(int tc) {
 	
 	scanf(" %s",buff);
 	string str = buff;
-	for(int i = 0 ; i < n ; i++) if (str[i]&1) st.insert(i);
+	for(int i = 0 ; i < n ; i++) if (str[i]=='1') st.insert(i);
 	
 	for(int i = 0 ; i < q ; i++) {
 		int c,k;

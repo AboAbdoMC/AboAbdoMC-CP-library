@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/staticrmq"
+#define PROBLEM "https://judge.yosupo.jp/problem/point_add_range_sum"
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -28,34 +28,52 @@ const int mod = 1e9 + 7;
 const int oo = 1e9 + 7;
 const ll lloo = 1e18 + 7;
 const int N = 5e5 + 7;
-const int LOG = 20;
 
 int n,q,a[N];
 
-struct SparseTable {
-	int st[N][LOG];
-
-	void build() {
-		for(int j = 0;j < LOG;j++)
-			for(int i = 0;i < n;i++) if(i + (1 << j) - 1 < n)
-				st[i][j] = (j ? min(st[i][j-1], st[i + (1 << (j-1))][j-1]): a[i]);
+struct ST {
+	ll t[2 * N];
+	ST() {
+		memset(t, 0, sizeof t);
 	}
-
-	int query(int l,int r) {
-		int x = 31 - __builtin_clz(r-l+1);
-		return min(st[l][x],st[r-(1<<x)+1][x]);
+	inline ll combine(ll l, ll r) {
+		return l + r;
+	}
+	void build() {
+		for(int i = 0; i < n; i++) t[i + n] = a[i];
+		for(int i = n - 1; i > 0; --i) t[i] = combine(t[i << 1], t[i << 1 | 1]);
+	}
+	void upd(int p, int v) {
+		for (t[p += n] += v; p >>= 1; ) t[p] = combine(t[p << 1], t[p << 1 | 1]);
+	}
+	ll query(int l, int r) {
+		r++;
+		ll resl = 0, resr = 0;
+		for(l += n, r += n; l < r; l >>= 1, r >>= 1) {
+			if(l & 1) resl = combine(resl, t[l++]);
+			if(r & 1) resr = combine(t[--r], resr);
+		}
+		return combine(resl, resr);
 	}
 };
 
 void solve(int tc) {
 	scanf("%d %d",&n,&q);
 	for(int i = 0 ; i < n ; i++) scanf("%d",a+i);
-	SparseTable sp;
-	sp.build();
-	for(int i = 0 ; i < q; i++) {
-		int l,r;
-		scanf("%d %d",&l,&r);
-		printf("%d\n",sp.query(l,r-1));
+	ST segtree;
+	segtree.build();
+	for(int i = 0 ; i < q ; i++) {
+		int t;
+		scanf("%d",&t);
+		if (t == 0) {
+			int p,x;
+			scanf("%d %d",&p,&x);
+			segtree.upd(p,x);
+		} else if (t == 1) {
+			int l,r;
+			scanf("%d %d",&l,&r);
+			printf("%lld\n",segtree.query(l,r-1));
+		}
 	}
 }
 

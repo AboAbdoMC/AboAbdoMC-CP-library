@@ -1,14 +1,3 @@
-/*
-              ____  
-    /\    _  |  _ \ 
-   /  \ _| |_| |_) |
-  / /\ \_   _|  _ < 
- / ____ \|_| | |_) |
-/_/    \_\   |____/ 
-                    
-                    
-*/
-
 #define PROBLEM "https://judge.yosupo.jp/problem/aplusb"
 
 #include <bits/stdc++.h>
