@@ -1,7 +1,10 @@
 {
 "Data Structures/associative_array.test.cpp": "2023-01-11 21:20:22 +0300",
 "Data Structures/point_add_range_sum.test.cpp": "2023-01-11 21:20:22 +0300",
+"Data Structures/point_set_range_composite.test.cpp": "2023-01-17 12:52:30 +0300",
 "Data Structures/predecessor_problem.test.cpp": "2023-01-11 21:20:22 +0300",
+"Data Structures/range_affine_range_sum.test.cpp": "2023-01-17 12:52:30 +0300",
+"Data Structures/range_chmin_chmax_add_range_sum.test.cpp": "2023-01-17 12:52:30 +0300",
 "Data Structures/static_range_sum.test.cpp": "2023-01-11 21:20:22 +0300",
 "Data Structures/staticrmq.test.cpp": "2023-01-11 21:20:22 +0300",
 "Data Structures/unionfind.test.cpp": "2023-01-11 21:20:22 +0300",
