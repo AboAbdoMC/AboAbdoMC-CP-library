@@ -22,7 +22,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Data Structures/range_chmin_chmax_add_range_sum.test.cpp
       title: Data Structures/range_chmin_chmax_add_range_sum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Data Structures/range_kth_smallest.test.cpp
       title: Data Structures/range_kth_smallest.test.cpp
     - icon: ':heavy_check_mark:'
