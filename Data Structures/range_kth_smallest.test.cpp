@@ -29,59 +29,79 @@ const int oo = 1e9 + 7;
 const ll lloo = 1e18 + 7;
 const int N = 1e6 + 7;
 
+int n,q,a[N];
 
-struct node {
-	ll sum;
-	node(ll _sum = 0) : sum(_sum) {}
-};
-
-struct ST {
-	#define lc (id<<1)
-	#define rc ((id<<1)|1)
-	#define mid (l+(r-l)/2)
-
-	vector<node> seg;
-	ST() {seg.resize(n*4);}
-
-	inline node merge(node left,node right) {
-		node ret;
-		ret.sum = left.sum + right.sum;
-		return ret;
-	}
-
-	inline void pull(int id) {
-		seg[id] = merge(seg[lc],seg[rc]);
-	}
-
-	void build(int l = 0,int r = n-1,int id = 1) {
-		if (l == r) {
-			seg[id].sum = a[l];
+struct wavelet_tree{
+	#define vi vector<int>
+	#define pb push_back
+	int lo, hi;
+	wavelet_tree *l, *r;
+	vi b;
+ 
+	//nos are in range [x,y]
+	//array indices are [from, to)
+	wavelet_tree(int *from, int *to, int x, int y){
+		lo = x, hi = y;
+		if(lo == hi or from >= to) {
+			l=r=0;
 			return;
 		}
-		build(l,mid,lc);
-		build(mid+1,r,rc);
-		pull(id);
+		int mid = (lo+hi)/2;
+		auto f = [mid](int x){
+			return x <= mid;
+		};
+		b.reserve(to-from+1);
+		b.pb(0);
+		for(auto it = from; it != to; it++)
+			b.pb(b.back() + f(*it));
+		//see how lambda function is used here	
+		auto pivot = stable_partition(from, to, f);
+		l = new wavelet_tree(from, pivot, lo, mid);
+		r = new wavelet_tree(pivot, to, mid+1, hi);
 	}
-
-	void upd(int i,int x,int l = 0,int r = n-1,int id = 1) {
-		if (l == r) {
-			seg[id] = node(x);
-			return;
-		}
-		if (i <= mid) upd(i,x,l,mid,lc);
-		else upd(i,x,mid+1,r,rc);
-		pull(id);
+ 
+	//kth smallest element in [l, r]
+	int kth(int l, int r, int k){
+		if(l > r) return 0;
+		if(lo == hi) return lo;
+		int inLeft = b[r] - b[l-1];
+		int lb = b[l-1]; //amt of nos in first (l-1) nos that go in left 
+		int rb = b[r]; //amt of nos in first (r) nos that go in left
+		if(k <= inLeft) return this->l->kth(lb+1, rb , k);
+		return this->r->kth(l-lb, r-rb, k-inLeft);
 	}
-
-	node query(int L,int R,int l = 0,int r = n-1,int id = 1) {
-		if (l > R || r < L) return node();
-		if (l >= L && r <= R) return seg[id];
-		return merge(query(L,R,l,mid,lc),query(L,R,mid+1,r,rc));
+ 
+	//count of nos in [l, r] Less than or equal to k
+	int LTE(int l, int r, int k) {
+		if(l > r or k < lo) return 0;
+		if(hi <= k) return r - l + 1;
+		int lb = b[l-1], rb = b[r];
+		return this->l->LTE(lb+1, rb, k) + this->r->LTE(l-lb, r-rb, k);
+	}
+ 
+	//count of nos in [l, r] equal to k
+	int count(int l, int r, int k) {
+		if(l > r or k < lo or k > hi) return 0;
+		if(lo == hi) return r - l + 1;
+		int lb = b[l-1], rb = b[r], mid = (lo+hi)/2;
+		if(k <= mid) return this->l->count(lb+1, rb, k);
+		return this->r->count(l-lb, r-rb, k);
+	}
+	~wavelet_tree(){
+		delete l;
+		delete r;
 	}
 };
 
 void solve(int tc) {
-	
+	scanf("%d %d",&n,&q);
+	for(int i = 1 ; i <= n ; i++) scanf("%d",a+i);
+	wavelet_tree wt(a+1,a+n+1,0,1e9);
+	for(int i = 0 ; i < q ; i++) {
+		 int l,r,k;
+		 scanf("%d %d %d",&l,&r,&k);
+		 printf("%d\n",wt.kth(l+1,r,k+1));
+	}
 }
 
 int main() {
